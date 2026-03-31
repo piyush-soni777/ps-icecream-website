@@ -25,5 +25,4 @@ This project showcases a clean and attractive design for an ice cream shop with 
 - JavaScript  
 
 ---
-
-## 📂 Project Structure
+![preview img](/preview.png)
