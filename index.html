@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Frosty Delights -Premium Ice Cream Heaven</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="rainbo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Pacifico&display=swap');
+        
+        :root {
+            --primary: #FF5A8D;
+            --secondary: #FFC2D7;
+            --accent: #FFE9B1;
+            --dark: #1E1E24;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FFF9F9;
+            color: var(--dark);
+            scroll-behavior: smooth;
+        }
+        
+        .logo-font {
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #FFC2D7 0%, #FFE9B1 100%);
+        }
+        
+        .menu-item {
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .flavor-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-30px);}
+            60% {transform: translateY(-15px);}
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="bg-pink-600 text-white text-center py-2 px-4">
+        <p class="text-sm md:text-base">🍦 New Flavor Alert! Try our limited edition <strong>S'mores Campfire</strong> - Available for a limited time only!----<span style="font-weight: 608; color: #463f3f;">made by piyush-soni</span></p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/57f1674c-0add-4218-8dee-227e6a9b32e0.png" alt="Frosty Delights premium ice cream logo" class="h-16 w-16 border-2 border-gold-500 rounded-full shadow-lg">
+                    <span class="text-3xl font-bold text-white bg-clip-text bg-gradient-to-r from-pink-400 to-yellow-300 logo-font" style="color: #1E1E24;">Frosty Delights</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-800 hover:text-pink-600 font-medium">Home</a>
+                    <a href="#menu" class="text-gray-800 hover:text-pink-600 font-medium">Our Menu</a>
+                    <a href="#about" class="text-gray-800 hover:text-pink-600 font-medium">About Us</a>
+                    <a href="#gallery" class="text-gray-800 hover:text-pink-600 font-medium">Gallery</a>
+                    <a href="#reviews" class="text-gray-800 hover:text-pink-600 font-medium">Reviews</a>
+                    <a href="#contact" class="text-gray-800 hover:text-pink-600 font-medium">Contact</a>
+                    <button onclick="alert('yeahhhhh😉 buy your first order')"  class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-full font-medium transition duration-300">
+                        Order Now
+                    </button>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="mobile-menu" class="mobile-menu md:hidden">
+                <div class="px-2 pt-2 pb-4 space-y-2">
+                    <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-pink-50">Home</a>
+                    <a href="#menu" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-pink-50">Our Menu</a>
+                    <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-pink-50">About Us</a>
+                    <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-pink-50">Gallery</a>
+                    <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-pink-50">Reviews</a>
+                    <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-pink-50">Contact</a>
+                    <button class="w-full bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-full font-medium mt-2">
+                        Order Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <section id="home" class="hero-gradient relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                <source src="https://storage.googleapis.com/icecream/video/icecream-making.mp4" type="video/mp4">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f567e586-2ab3-4034-be87-0631bf1efd82.png" alt="Ice cream preparation fallback" class="w-full h-full object-cover">
+            </video>
+        </div>
+        <div class="bg-black bg-opacity-50 absolute inset-0"></div>
+        <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                        Handcrafted <span class="text-pink-600">Ice Cream</span> Made With Love
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-lg">
+                        We use only the freshest ingredients to create creamy, dreamy ice cream that will make your taste buds dance with joy!
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button  class="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 rounded-full font-bold text-lg transition duration-300 shadow-lg">
+                           <a href="#menu"> Browse Flavors</a>
+                        </button>
+                        <button class="border-2 border-pink-600 text-pink-600 hover:bg-pink-50 px-8 py-3 rounded-full font-bold text-lg transition duration-300 shadow-lg">
+                            Find a Store
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="floating">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b16f3111-1ea5-482a-b29a-ac7bd520bffd.png" alt="Three-tier ice cream sundae with chocolate sauce, whipped cream, and cherry on top" class="w-full max-w-md mx-auto rounded-lg shadow-2xl border-8 border-white">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#menu" class="scroll-indicator text-pink-600 animate-bounce">
+                <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Flavors -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-pink-600 font-bold">FLAVOR SPOTLIGHT</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Our Signature Creations</h2>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Flavor 1 -->
+                <div class="menu-item bg-white rounded-2xl shadow-xl overflow-hidden relative transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="flavor-badge bg-gradient-to-r from-pink-500 to-yellow-400 shadow-lg">NEW</div>
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/78506780-910c-409c-87e3-821ebeb0840d.png" alt="Artisinal ice cream with gold leaf and edible flowers" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Campfire S'mores</h3>
+                        <p class="text-gray-600 mb-4">Toasted marshmallow ice cream with chocolate chunks and graham cracker swirls</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-pink-600">₹490</span>
+                            <button class="bg-pink-100 hover:bg-pink-200 text-pink-600 px-4 py-2 rounded-full add-to-cart"
+                                    data-name="Campfire S'mores" 
+                                    data-price="₹490"
+                                    data-theme="black">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Flavor 2 -->
+                <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b552d444-4af5-4833-984e-58447150a734.png" alt="Cookies and cream ice cream with large chunks of chocolate cookies" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Cookie Monster</h3>
+                        <p class="text-gray-600 mb-4">Creamy vanilla packed with chunks of chocolate sandwich cookies</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-pink-600">₹640</span>
+                            <button class="bg-pink-100 hover:bg-pink-200 text-pink-600 px-4 py-2 rounded-full add-to-cart"
+                                    data-name="Cookie Monster" 
+                                    data-price="₹640"
+                                    data-theme="black">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Flavor 3 -->
+                <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden relative">
+                    <div class="flavor-badge">BEST</div>
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/37c65015-9e8b-4f31-a29d-965da1b4d9a6.png" alt="Salted caramel ice cream with caramel ribbon and pretzel pieces" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Salted Caramel Crunch</h3>
+                        <p class="text-gray-600 mb-4">Buttery caramel ice cream with sea salt and pretzel pieces</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-pink-600">₹529</span>
+                            <button class="bg-pink-100 hover:bg-pink-200 text-pink-600 px-4 py-2 rounded-full add-to-cart"
+                                    data-name="Salted Caramel Crunch" 
+                                    data-price="₹529"
+                                    data-theme="black">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Flavor 4 -->
+                <div class="menu-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6decf628-0fa4-49fd-88c5-c82e3b5645ce.png" alt="Rainbow sherbet with swirls of raspberry, orange and lime flavors" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Rainbow Sherbet</h3>
+                        <p class="text-gray-600 mb-4">A refreshing trio of raspberry, orange and lime sherbet</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-pink-600">₹590</span>
+                            <button class="bg-pink-100 hover:bg-pink-200 text-pink-600 px-4 py-2 rounded-full add-to-cart"
+                                    data-name="Rainbow Sherbet" 
+                                    data-price="₹590"
+                                    data-theme="black">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="border-2 border-pink-600 text-pink-600 hover:bg-pink-50 px-8 py-3 rounded-full font-bold text-lg transition duration-300">
+                    View Full Menu
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="py-12 bg-pink-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold text-gray-900">Subscribe and Save 15%</h3>
+                    <p class="text-gray-600">Join our ice cream club for exclusive deals</p>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="flex">
+                        <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <button onclick="alert('Thank you for subscribing!')" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-r-full font-bold">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Menu Section -->
+    <section id="menu" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Complete Menu</h2>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-4"></div>
+            </div>
+            
+            <!-- Flavors Tabs -->
+            <div class="flex flex-wrap justify-center mb-12">
+                <button class="px-6 py-2 mx-2 mb-2 bg-pink-600 text-white rounded-full font-medium">All Flavors</button>
+                <button class="px-6 py-2 mx-2 mb-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium">Classics</button>
+                <button class="px-6 py-2 mx-2 mb-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium">Seasonal</button>
+                <button class="px-6 py-2 mx-2 mb-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium">Dairy-Free</button>
+                <button class="px-6 py-2 mx-2 mb-2 bg-gray-100 hover:bg-gray-200 rounded-full font-medium">Sorbets</button>
+            </div>
+            
+            <!-- Menu Items Grid -->
+            <div class="flex mb-12 justify-center">
+                <button class="px-4 py-2 bg-pink-600 text-white rounded-l-full">Card View</button>
+                <button class="px-4 py-2 bg-gray-200 rounded-r-full">List View</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="menu-item bg-white rounded-xl shadow-lg p-6 flex transform hover:scale-[1.02] transition-all">
+                    <div class="w-28 h-28 min-w-28 overflow-hidden rounded-xl mr-6 border-2 border-pink-100">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/12df5645-a4dc-4705-a3ed-f68e014d6fd0.png" alt="Premium ice cream with gold flake decoration" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Mint Chocolate Chip</h3>
+                        <p class="text-gray-600 text-sm mb-2">Cool mint with dark chocolate chunks</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-600 font-bold">₹80</span>
+                            <button class="text-pink-600 hover:text-pink-700 add-to-cart" 
+                                    data-name="Mint Chocolate Chip" 
+                                    data-price="₹80"
+                                    data-theme="pink">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 2 - Blue Theme -->
+                <div class="menu-item theme-change bg-white rounded-lg shadow-md p-6 flex">
+                    <div class="w-28 h-28 min-w-28 overflow-hidden rounded-xl mr-6 border-2 border-blue-100">
+                        <img src="blueberry.jpg" alt="Blueberry ice cream with fresh berries" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Blueberry Bliss</h3>
+                        <p class="text-gray-600 text-sm mb-2">Creamy blueberry ice cream with berry swirls</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-600 font-bold">₹120</span>
+                            <button class="text-pink-600 hover:text-pink-700 add-to-cart" 
+                                    data-name="blueberry-bliss" 
+                                    data-price="₹120"
+                                    data-theme="pink">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-item bg-white rounded-lg shadow-md p-6 flex">
+                    <div class="w-24 h-24 min-w-24 overflow-hidden rounded-lg mr-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8676c6b5-7534-495e-9c57-1145088dd22c.png" alt="Rocky road ice cream with marshmallows and almonds" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Rocky Road</h3>
+                        <p class="text-gray-600 text-sm mb-2">Chocolate with marshmallows & almonds</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-600 font-bold">₹130</span>
+                           <button class="text-pink-600 hover:text-pink-700 add-to-cart" 
+                                    data-name="Rocky Road" 
+                                    data-price="₹130"
+                                    data-theme="pink">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="menu-item bg-white rounded-lg shadow-md p-6 flex">
+                    <div class="w-24 h-24 min-w-24 overflow-hidden rounded-lg mr-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6fec371d-b13b-4167-9dbb-5730ef05d8ec.png" alt="Strawberry cheesecake ice cream with graham cracker swirl" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Strawberry Cheesecake</h3>
+                        <p class="text-gray-600 text-sm mb-2">Strawberry ice cream with cheesecake pieces</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-600 font-bold">₹110</span>
+                            <button class="text-pink-600 hover:text-pink-700 add-to-cart" 
+                                    data-name="Strawberry Cheesecake" 
+                                    data-price="₹110"
+                                    data-theme="pink">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="menu-item bg-white rounded-lg shadow-md p-6 flex">
+                    <div class="w-24 h-24 min-w-24 overflow-hidden rounded-lg mr-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8f0468bf-b0f6-4a37-8969-d139c4360218.png" alt="Butter pecan ice cream with roasted pecans" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Butter Pecan</h3>
+                        <p class="text-gray-600 text-sm mb-2">Buttery ice cream with roasted pecans</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-600 font-bold">₹99</span>
+                            <button class="text-pink-600 hover:text-pink-700 add-to-cart" 
+                                    data-name="Butter Pecan" 
+                                    data-price="₹99"
+                                    data-theme="pink">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="menu-item bg-white rounded-lg shadow-md p-6 flex">
+                    <div class="w-24 h-24 min-w-24 overflow-hidden rounded-lg mr-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5ef2ce26-0da3-4eba-9f92-a1546902ad92.png" alt="Dulce de leche ice cream with caramel ribbons" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Dulce de Leche</h3>
+                        <p class="text-gray-600 text-sm mb-2">Caramelized milk with ribbons of caramel</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-600 font-bold">₹290</span>
+                           <button class="text-pink-600 hover:text-pink-700 add-to-cart" 
+                                    data-name="Dulce de Leche" 
+                                    data-price="₹190"
+                                    data-theme="pink">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Item 6 -->
+               <div class="menu-item bg-white rounded-lg shadow-md p-6 flex">
+                    <div class="w-24 h-24 min-w-24 overflow-hidden rounded-lg mr-4">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7eb1ac26-9ec4-4526-9ab2-a66a60e1459d.png" alt="Coconut almond fudge ice cream with coconut flakes" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Coconut Almond Fudge</h3>
+                        <p class="text-gray-600 text-sm mb-2">Coconut ice cream with almonds & fudge</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-600 font-bold">₹49</span>
+                            <button class="text-pink-600 hover:text-pink-700 add-to-cart" 
+                                    data-name="Coconut Almond Fudge" 
+                                    data-price="₹49"
+                                    data-theme="pink">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Item 7 -->
+               <div class="menu-item bg-white rounded-lg shadow-md p-6 flex">
+                    <div class="w-24 h-24 min-w-24 overflow-hidden rounded-lg mr-4">
+                        <img src="dark milk.jpg" alt="dark milk " class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Dark milk</h3>
+                        <p class="text-gray-600 text-sm mb-2">dark milk ice cream with almonds & fudge</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-600 font-bold">₹149</span>
+                            <button class="text-pink-600 hover:text-pink-700 add-to-cart" 
+                                    data-name="Dark milk" 
+                                    data-price="₹149"
+                                    data-theme="pink">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                 <!-- Item 8 -->
+               <div class="menu-item bg-white rounded-lg shadow-md p-6 flex">
+                    <div class="w-24 h-24 min-w-24 overflow-hidden rounded-lg mr-4">
+                        <img src="arg pie.jpg" alt="argo pie ice cream with coconut flakes" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Argo pie</h3>
+                        <p class="text-gray-600 text-sm mb-2"> ice cream with chckailte & fudge</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-600 font-bold">₹249</span>
+                            <button class="text-pink-600 hover:text-pink-700 add-to-cart" 
+                                    data-name="Argo pie" 
+                                    data-price="₹249"
+                                    data-theme="pink">
+                                <i class="fas fa-plus-circle text-xl"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Experience Section -->
+    <section class="py-32 parallax bg-fixed" style="background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4592b609-e430-4c2d-ac5f-dd3a7cddbf91.png')">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto bg-black bg-opacity-60 text-white p-12 rounded-xl backdrop-blur-sm">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">The Art of Frozen Perfection</h2>
+                <p class="text-xl mb-8">Handcrafted in small batches using only the finest ingredients from around the world</p>
+                <button onclick="alert('your booking is placed thanks for joint us...💝🤗')" class="bg-gradient-to-r from-pink-500 to-yellow-400 text-white px-10 py-4 rounded-full font-bold text-lg transition-all hover:shadow-xl hover:scale-105">
+                    Book A Tasting
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specials & Deals -->
+    <section class="py-16 bg-pink-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-pink-600 font-bold">SPECIAL OFFERS</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Sweet Deals For You</h2>
+                <div class="w-20 h-1 bg-pink-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Deal 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f0722a8c-93bf-4838-9528-e0036133a6c6.png" alt="Large ice cream cone with multiple scoops and toppings" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+                            30% OFF
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Triple Scoop Tuesday</h3>
+                        <p class="text-gray-600 mb-4">Every Tuesday, get our signature triple scoop cone for the price of a double!</p>
+                        <button class="w-full bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full font-medium">
+                            Get Deal
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Deal 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6723b5a1-5d19-481b-b647-2fa72eaba7ab.png" alt="Family sharing ice cream sundae with four spoons" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Family Sundae Sunday</h3>
+                        <p class="text-gray-600 mb-4">All sundaes are 2-for-1 every Sunday when you bring your family!</p>
+                        <button class="w-full bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full font-medium">
+                            Get Deal
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Deal 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/089fe370-32d8-4516-aef5-b164bc04320b.png" alt="Happy hour sign with discounted ice cream float" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+                            NEW
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Float Your Boat Happy Hour</h3>
+                        <p class="text-gray-600 mb-4">3–5pm daily, all ice cream floats are half price with free refills!</p>
+                        <button class="w-full bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full font-medium">
+                            Get Deal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8fb42c0e-3975-4037-9037-5a71eee14bc3.png" alt="Vintage ice cream shop interior with marble counters and neon signs" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <span class="text-pink-600 font-bold">OUR STORY</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">Scooping Happiness Since 1987</h2>
+                    <p class="text-gray-600 mb-4">
+                        Frosty Delights began as a small family-owned ice cream cart in downtown Chicago. Our founder, 
+                        Maria Rodriguez, started with just three flavors and a dream to bring joy through 
+                        delicious frozen treats.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Today, we still use Maria's original recipes but have expanded to over 50 locations 
+                        nationwide. Every batch is still made in small quantities to ensure the highest quality 
+                        and freshest taste.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-center">
+                            <div class="bg-pink-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-heart text-pink-600 text-xl"></i>
+                            </div>
+                            <span class="font-medium">Handmade Daily</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-pink-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-leaf text-pink-600 text-xl"></i>
+                            </div>
+                            <span class="font-medium">Local Ingredients</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-pink-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-star text-pink-600 text-xl"></i>
+                            </div>
+                            <span class="font-medium">Premium Quality</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-pink-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-smile text-pink-600 text-xl"></i>
+                            </div>
+                            <span class="font-medium">Happiness Guaranteed</span>
+                        </div>
+                    </div>
+                    <button class="border-2 border-pink-600 text-pink-600 hover:bg-pink-50 px-8 py-3 rounded-full font-bold transition duration-300">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Gallery -->
+<!-- Gallery Section -->
+<section id="gallery" style="background: linear-gradient(to right, #fff0f5, #ffe6f0); padding: 60px 20px; font-family: 'Poppins', sans-serif;">
+  <div style="max-width: 1200px; margin: auto; text-align: center;">
+    <h2 style="font-weight: 700; font-size: 2.5rem; color: #ff3399; margin-bottom: 10px;">Our Ice Cream Gallery 🍨</h2>
+    <p style="font-weight: 290; color: #463f3f; font-size: 1.1rem; margin-bottom: 40px;">Scroll through scoops of happiness!</p>
+
+    <!-- Gallery Grid -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+      <!-- Image Card 1 -->
+      <div style="flex: 1 1 250px; max-width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+        <img src="ice1.webp" alt="Ice Cream 1" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+
+      <!-- Image Card 2 -->
+      <div style="flex: 1 1 250px; max-width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <img src="ice2.avif" alt="Ice Cream 2" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+
+      <!-- Image Card 3 -->
+      <div style="flex: 1 1 250px; max-width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <img src="ice3.jpg" alt="Ice Cream 3" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+
+      <!-- Image Card 4 -->
+      <div style="flex: 1 1 250px; max-width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <img src="ice4.avif" alt="Ice Cream 4" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+
+      <!-- Image Card 5 -->
+      <div style="flex: 1 1 250px; max-width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <img src="ice5.webp" alt="Ice Cream 5" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+
+      <!-- Image Card 6 -->
+      <div style="flex: 1 1 250px; max-width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <img src="ice6.jpg" alt="Ice Cream 6" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- time  -->
+<!-- Countdown Timer Section -->
+<section id="offer" style="background: linear-gradient(to right, #ffe6f0, #e24a7c); padding: 60px 20px; text-align: center; font-family: 'Poppins', sans-serif;">
+  <h2 style="font-weight: 670; font-size: 2.5rem; color: #000000; margin-bottom: 10px;">Limited Time Offer 🎉</h2>
+  <p style="font-weight: 460 ; font-size: 1.1rem; color: #555;">Hurry up! This delicious deal melts away soon 🍨</p>
+
+  <!-- Timer Display -->
+  <div id="timer" style="display: flex; justify-content: center; gap: 20px; margin: 40px 0; flex-wrap: wrap;">
+    <div style="background: white; border-radius: 15px; padding: 20px 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+      <h3 style="font-size: 2rem; color: #000000;" id="days">00</h3>
+      <p style="color: #666;">Days</p>
+    </div>
+    <div style="background: white; border-radius: 15px; padding: 20px 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+      <h3 style="font-size: 2rem; color: #000000;" id="hours">00</h3>
+      <p style="color: #666;">Hours</p>
+    </div>
+    <div style="background: white; border-radius: 15px; padding: 20px 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+      <h3 style="font-size: 2rem; color: #000000;" id="minutes">00</h3>
+      <p style="color: #666;">Minutes</p>
+    </div>
+    <div style="background: white; border-radius: 15px; padding: 20px 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+      <h3 style="font-size: 2rem; color: #000000;" id="seconds">00</h3>
+      <p style="color: #666;">Seconds</p>
+    </div>
+  </div>
+
+  <!-- Offer CTA Button -->
+  <a href="#menu" style="background: #ff3399; color: white; padding: 12px 25px; font-size: 1rem; border-radius: 12px; text-decoration: none; transition: background 0.3s ease;" onmouseover="this.style.background='#e60073'" onmouseout="this.style.background='#ff3399'">
+    Grab The Offer Now
+  </a>
+</section>
+
+<!-- Countdown Script -->
+<script>
+  // Set target date (YYYY-MM-DDTHH:MM:SS)
+  var countDownDate = new Date("2025-08-07T23:59:59").getTime();
+
+  var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("timer").innerHTML = "<h3 style='color:#ff3399;'>Offer Expired 😢</h3>";
+    } else {
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+      document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+      document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+      document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+    }
+  }, 1000);
+</script>
+
+
+
+    <!-- review page -->
+     <!-- Reviews Section -->
+<section id="reviews" style="background: #fef6fd; padding: 50px 20px;">
+  <div style="max-width: 1100px; margin: auto; text-align: center;">
+    <h2 style="font-weight: 700; font-size: 2.5rem; color: #3c3c3c; margin-bottom: 10px;">What Our Customers Say</h2>
+    <p style="color: #888; font-size: 1.1rem;">Real smiles. Real scoops. Real stories 🍦</p>
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 40px; gap: 30px;">
+      <!-- Review Card 1 -->
+      <div style="background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 300px; padding: 25px; text-align: left;">
+        <img src="https://i.pravatar.cc/100?img=11" alt="User" style="border-radius: 50%; width: 60px;">
+        <h3 style="margin: 15px 0 5px; font-size: 1.2rem;">PIYUSH SONI</h3>
+        <p style="color: #ff69b4; font-size: 0.9rem;">★ ★ ★ ★ ★</p>
+        <p style="color: #555;">"Best ice cream ever! The Cookie Monster is out of this world. Smooth, creamy and just melts in your mouth!"</p>
+      </div>
+
+      <!-- Review Card 2 -->
+      <div style="background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 300px; padding: 25px; text-align: left;">
+        <img src="https://i.pravatar.cc/100?img=32" alt="User" style="border-radius: 50%; width: 60px;">
+        <h3 style="margin: 15px 0 5px; font-size: 1.2rem;">ANANYA VERMA</h3>
+        <p style="color: #ff69b4; font-size: 0.9rem;">★ ★ ★ ★ ☆</p>
+        <p style="color: #555;">"Loved the Rainbow Sherbet! So colorful and tangy. Perfect for hot summer days. Highly recommend."</p>
+      </div>
+
+      <!-- Review Card 3 -->
+      <div style="background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 300px; padding: 25px; text-align: left;">
+        <img src="https://i.pravatar.cc/100?img=23" alt="User" style="border-radius: 50%; width: 60px;">
+        <h3 style="margin: 15px 0 5px; font-size: 1.2rem;">Sneha Joshi</h3>
+        <p style="color: #ff69b4; font-size: 0.9rem;">★ ★ ★ ★ ★</p>
+        <p style="color: #555;">"The vibes of this shop and the ice cream flavors are magical. Aesthetic and delicious!"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- contact section -->
+ <!-- Contact Section -->
+<section id="contact" style="background: linear-gradient(to right, #ffe6f0, #fff5f9); padding: 60px 20px;">
+  <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    
+    <!-- Contact Info -->
+    <div style="flex: 1; min-width: 280px; margin-bottom: 30px;">
+      <h2 style="font-weight: 780; font-size: 2.5rem; color: #3c3c3c; margin-bottom: 10px;">Get in Touch 🍨</h2>
+      <p style="font-size: 1.1rem; color: #555;">We'd love to hear from you! Whether it's feedback, questions or booking a private event – reach out!</p>
+      
+      <div style="margin-top: 25px; color: #555;">
+        <p><strong>Email:</strong> piyushsoni@gmail.com</p>
+        <p><strong>Phone:</strong> +91 969334296</p>
+        <p><strong>Location:</strong> Gamharia, Jamshedpur, Jharkhand</p>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div style="flex: 1; min-width: 280px; background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+      <form>
+        <input type="text" placeholder="Your Name" required style="width: 100%; padding: 12px 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ccc; font-size: 1rem;">
+        <input type="email" placeholder="Your Email" required style="width: 100%; padding: 12px 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #ccc; font-size: 1rem;">
+        <textarea placeholder="Your Message" rows="5" required style="width: 100%; padding: 12px 15px; border-radius: 10px; border: 1px solid #ccc; font-size: 1rem;"></textarea>
+        <button type="submit" style="margin-top: 15px; background: #ff3399; color: white; border: none; padding: 12px 25px; font-size: 1rem; border-radius: 10px; cursor: pointer;">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+    <!-- This is where the remaining sections would go in the actual file -->
+    <!-- Gallery section would be added here -->
+    <!-- Testimonials section would be added here -->
+    <!-- Contact section would be added here -->
+    <!-- Newsletter section would be added here -->
+    <!-- Luxury Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Frosty Delights</h3>
+                    <p class="mb-4">Premium artisanal ice cream crafted with passion and finest ingredients since 1987</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl text-pink-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl text-pink-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl text-pink-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Locations</h4>
+                    <ul class="space-y-3">
+                        <li>INDIA</li>
+                        <li>JHARKHAND</li>
+                        <li>JAMSHEDPUR</li>
+                        <li>GAMHARIA</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Menu</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#menu" class="hover:text-pink-400">Seasonal Flavors</a></li>
+                        <li><a href="#menu" class="hover:text-pink-400">Premium Collections</a></li>
+                        <li><a href="#menu" class="hover:text-pink-400">Signature Cones</a></li>
+                        <li><a href="#menu" class="hover:text-pink-400">Dessert Menu</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contact</h4>
+                    <p>piyushsoni@gmail.com</p>
+                    <p class="mt-2">+91 969334296</p>
+                    <button onclick="alert('your booking is placed thanks for joint us... 😊😚')" class="mt-6 bg-gradient-to-r from-pink-500 to-yellow-400 text-white px-6 py-2 rounded-full">Book Private Event</button>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-6 text-center">
+                <p>© 2023 Frosty Delights. made with love by PIYUSH SONI</p>
+            </div>
+        </div>
+    </footer>
+
+   
+    <!-- Shopping Cart -->
+    <div id="card" class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50">
+        <button class="cart-button bg-gradient-to-r from-pink-600 to-yellow-500 text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-xl flex items-center justify-center transform hover:scale-110 transition-all">
+            <i class="fas fa-shopping-cart text-2xl"></i>
+            <span id="cart-counter" class="absolute -top-1 -right-1 bg-yellow-400 text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">0</span>
+        </button>
+        
+        <div class="cart-dropdown hidden absolute bottom-full right-0 w-72 bg-white shadow-lg rounded-lg p-4 mb-2">
+            <h3 class="font-bold text-lg mb-2">Your Ice Cream Cart</h3>
+            <div id="cart-items" class="max-h-60 overflow-y-auto"></div>
+            <button onclick="alert('Your order is plced thank you so much 😊😚')" class="w-full mt-4 bg-pink-600 text-white py-2 rounded-full">Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        // Theme changer
+        let cartItems = [];
+        
+        const themeClasses = {
+            'pink': {
+                'bg': 'bg-pink-600',
+                'text': 'text-pink-600',
+                'hover': 'hover:bg-pink-100'
+            },
+            'blue': {
+                'bg': 'bg-blue-600',
+                'text': 'text-blue-600',
+                'hover': 'hover:bg-blue-100'
+            }
+        };
+
+        // Shopping cart functionality
+        document.querySelector('.cart-button').addEventListener('click', function() {
+            document.querySelector('.cart-dropdown').classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.cart-button') && !e.target.closest('.cart-dropdown')) {
+                document.querySelector('.cart-dropdown').classList.add('hidden');
+            }
+        });
+
+        // Add to cart logic
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const name = this.dataset.name;
+                const price = this.dataset.price;
+                
+                cartItems.push({name, price});
+                updateCart();
+            });
+        });
+
+        function updateCart() {
+            const cartCounter = document.getElementById('cart-counter');
+            const cartItemsDiv = document.getElementById('cart-items');
+            
+            cartCounter.textContent = cartItems.length;
+            
+            cartItemsDiv.innerHTML = '';
+            cartItems.forEach((item, index) => {
+                const itemEl = document.createElement('div');
+                itemEl.className = 'flex justify-between items-center border-b border-gray-200 py-2';
+                itemEl.innerHTML = `
+                    <span>${item.name}</span>
+                    <span>${item.price} <button class="text-red-500 remove-item" data-index="${index}">
+                        <i class="fas fa-times"></i>
+                    </button></span>
+                `;
+                cartItemsDiv.appendChild(itemEl);
+            });
+
+            // Add remove item functionality
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    cartItems.splice(index, 1);
+                    updateCart();
+                });
+            });
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const theme = this.dataset.theme;
+                document.documentElement.classList.add(`${themeClasses[theme].bg}`);
+                document.querySelectorAll('.theme-change').forEach(el => {
+                    el.classList.add(`${themeClasses[theme].text}`, `${themeClasses[theme].hover}`);
+                });
+            });
+        });
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollToTopButton = document.getElementById('scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.remove('hidden');
+            } else {
+                scrollToTopButton.classList.add('hidden');
+            }
+        });
+
+        // Simple animation for flavor cards
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>
