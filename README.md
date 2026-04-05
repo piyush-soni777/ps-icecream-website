@@ -9,7 +9,13 @@ This project showcases a clean and attractive design for an ice cream shop with 
 🔗 https://ps-icecream-website.netlify.app
 
 ---
+##screnshoot
 
+![icecream](https://github.com/user-attachments/assets/4901867e-728b-4f88-bfa7-59ed90e39afe)
+
+
+
+---
 ## ✨ Features
 - 🍨 Beautiful and eye-catching UI design  
 - 📱 Fully responsive (Mobile + Desktop)  
